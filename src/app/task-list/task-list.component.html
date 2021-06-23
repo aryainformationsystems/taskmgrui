@@ -1,0 +1,58 @@
+<div fxLayout="row" fxLayoutAlign="space-between">
+  <h1>All Tasks</h1>
+  <div>
+    <button mat-mini-fab>
+      <mat-icon>filter_list</mat-icon>
+    </button>
+    &nbsp;
+    <button mat-mini-fab color="primary" (click)="showForm()">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+</div>
+<table
+  mat-table
+  [dataSource]="dataSource"
+  matSort
+  matSortActive="createdAt"
+  matSortDisableClear
+  matSortDirection="desc"
+>
+  <ng-container matColumnDef="title">
+    <th mat-header-cell *matHeaderCellDef style="width: 60%">Title</th>
+    <td mat-cell *matCellDef="let task">{{ task.title }}</td>
+  </ng-container>
+  <ng-container matColumnDef="category">
+    <th mat-header-cell *matHeaderCellDef>Category</th>
+    <td mat-cell *matCellDef="let task">{{ task.category }}</td>
+  </ng-container>
+  <ng-container matColumnDef="estimate">
+    <th mat-header-cell *matHeaderCellDef>Estimate(in hrs)</th>
+    <td mat-cell *matCellDef="let task">{{ task.estimate }}</td>
+  </ng-container>
+  <ng-container matColumnDef="createdAt">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>
+      Created At
+    </th>
+    <td mat-cell *matCellDef="let task">{{ task.createdAt | date }}</td>
+  </ng-container>
+  <ng-container matColumnDef="targetDate">
+    <th mat-header-cell *matHeaderCellDef>Target Date</th>
+    <td mat-cell *matCellDef="let task">{{ task.targetDate | date }}</td>
+  </ng-container>
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef style="width: 40px"></th>
+    <td mat-cell *matCellDef="let task">
+      <button mat-icon-button color="primary">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+<mat-paginator
+  [length]="resultsLength"
+  [pageSizeOptions]="[10, 20, 30]"
+  showFirstLastButtons
+></mat-paginator>

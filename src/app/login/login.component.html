@@ -1,0 +1,57 @@
+<div fxLayout="row" fxLayoutAlign="center center" class="outer">
+  <div
+    fxLayout="row"
+    class="mat-elevation-z8"
+    style="border-radius: 10px; width: 33vw"
+  >
+    <div
+      fxFlex="50"
+      class="image-div"
+      style="border-top-left-radius: 10px; border-bottom-left-radius: 10px"
+    ></div>
+    <div
+      fxFlex="50"
+      fxLayout="column"
+      fxLayoutAlign="center start"
+      style="
+        padding: 20px;
+        background-color: #ffffff;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        height: 50vh;
+        background-image: url('/assets/imgs/box-small.png');
+        background-position: top left;
+        background-repeat: no-repeat;
+      "
+    >
+      <h1>Sign In</h1>
+      <form [formGroup]="loginForm">
+        <mat-form-field>
+          <mat-label>Username</mat-label>
+          <input
+            matInput
+            placeholder="Username"
+            formControlName="username"
+            autocomplete="no"
+          />
+          <mat-hint>*Required</mat-hint>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+          <input
+            matInput
+            type="password"
+            placeholder="Password"
+            formControlName="password"
+            autocomplete="no"
+          />
+          <mat-hint>*Required</mat-hint>
+        </mat-form-field>
+        <p>
+          <button mat-raised-button color="primary">Login</button>
+        </p>
+      </form>
+      <p>Forgot Password? <a href="#">Click Here</a>.</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+<div fxLayout="row" fxLayoutAlign="space-between">
+  <h1>New Task</h1>
+  <div>
+    <button mat-mini-fab (click)="showList()">
+      <mat-icon>list</mat-icon>
+    </button>
+  </div>
+</div>
+<form [formGroup]="taskForm">
+  <mat-form-field>
+    <mat-label>Title</mat-label>
+    <input matInput formControlName="title" />
+    <mat-hint>*Required</mat-hint>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Description</mat-label>
+    <textarea matInput formControlName="description" rows="10"></textarea>
+    <mat-hint>*Required</mat-hint>
+  </mat-form-field>
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20px">
+    <mat-form-field>
+      <mat-label>Category</mat-label>
+      <mat-select formControlName="category">
+        <mat-option value="Backend & Frontend">Backend &amp; Frontend</mat-option>
+        <mat-option value="Backend">Backend</mat-option>
+        <mat-option value="Frontend">Frontend</mat-option>
+        <mat-option value="Testing">Testing</mat-option>
+        <mat-option value="Deployment">Deployment</mat-option>
+      </mat-select>
+      <mat-hint>*Required</mat-hint>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Target date</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="targetDate" />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Estimate</mat-label>
+      <input matInput formControlName="estimate" />
+    </mat-form-field>
+  </div>
+</form>
+<br />
+<p>
+  <button mat-raised-button color="primary" (click)="saveTask()">
+    Add Task</button
+  >&nbsp;
+  <button mat-raised-button color="warn">Cancel</button>
+</p>
