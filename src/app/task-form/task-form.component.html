@@ -39,6 +39,14 @@
       <mat-label>Estimate</mat-label>
       <input matInput formControlName="estimate" />
     </mat-form-field>
+    <mat-form-field>
+      <mat-label>Status</mat-label>
+      <mat-select formControlName="status">
+        <mat-option value="Pending">Pending</mat-option>
+        <mat-option value="In Progress">In Progress</mat-option>
+        <mat-option value="Completed">Completed</mat-option>
+      </mat-select>
+    </mat-form-field>
   </div>
 </form>
 <br />

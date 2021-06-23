@@ -24,6 +24,7 @@ export class TaskFormComponent implements OnInit {
       category: ['', [Validators.required]],
       estimate: [''],
       targetDate: [''],
+      status: ['']
     });
   }
 

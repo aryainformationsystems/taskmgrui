@@ -20,6 +20,7 @@ export class TaskListComponent implements AfterViewInit {
 
   displayedColumns = [
     'title',
+    'status',
     'category',
     'estimate',
     'createdAt',
